@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Multi-Agent Learning Seminar: Incentivized Exploration | Ruben Vereecken</title>
+
+    <meta name="author" content="Ruben Vereecken">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="bower_components/reveal.js/css/theme/solarized.css" id="theme">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Code syntax highlighting -->
+    <!-- <link rel="stylesheet" href="lib/css/zenburn.css"> -->
+
+    <script>
+      REVEAL_PATH = 'bower_components/reveal.js/';
+    </script>
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = REVEAL_PATH + 'css/print/pdf.css';
+      if (window.location.search.match( /print-pdf/gi )) 
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section class="first">
+          <!-- <h1>Multi-Agent Learning Seminar</h1> -->
+          <h2>Incentivizing Exploration In RL With Deep Predictive Models</h2>
+          <p>Bradly C. Stadie, Sergey Levine, Pieter Abbeel</p>
+          <br>
+          <em>presentation by Ruben Vereecken</em>
+        </section>
+        <section>
+          <h3>Current State</h3>
+          <ul>
+            <li class="fragment">Exploration is needed to find good states</li>
+            <li class="fragment">... and to prevent from getting stuck in local optima</li>
+            <li class="fragment">Usually epsilon-greedy is used</li>
+            <li class="fragment">It's naive and suboptimal</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Goal</h3>
+          <ul>
+            <li class="fragment">More efficient exploration</li>
+            <li class="fragment">Using a separate model of the system</li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <h2>Introducing the Theory</h2>
+          </section>
+          <section>
+            <h3>The Gist</h3>
+            <ul>
+              <li class="fragment"><em>"Optimism under uncertainty"</em></li>
+              <li class="fragment">Encourage newer state-action pairs by augmenting the reward function</li>
+            </ul>
+            <p class="fragment">$R_{bonus}(s,a) = R(s,a) + \beta \mathcal{N}(s,a)$</p>
+            <p class="fragment">$\mathcal{N}: \mathcal{S} \times \mathcal{A} \rightarrow [0,1]$ (Novelty function)</p>
+            <aside class="notes">
+              <ul class="li">Assume: Learner tends to choose best action</ul>
+            </aside>
+          </section>
+          <section>
+            <h3>Now to design $\mathcal{N}$</h3>
+            <ul>
+              <li class="fragment">Learn a concurrent model that predicts the next state</li>
+              <li class="fragment">$\mathcal{M}: \mathcal{S} \times \mathcal{A} \rightarrow \mathcal{S}$</li>
+              <li class="fragment">Bad prediction $\rightarrow$ newer state</li>
+              <li class="fragment">Call the prediction error $e_t(s_t, a_t)$</li>
+              <p class="fragment">$\mathcal{N}(s_t, a_t) \sim e_t(s_t, a_t)$</p>
+              <p class="fragment">$\mathcal{N}(s_t, a_t) = \frac{e_t(s_t, a_t)}{t*C}$</p>
+            </ul>
+            <aside class="notes">
+              N decays with time and grows with error.
+            </aside>
+          </section>
+          <section>
+            <h3>The Math</h3>
+            <p>Skip this during presentation!</p>
+            <p>$e_t(s_t, a_t) = \|s_{t+1} - \mathcal{M}(s_t, a_t)\|_2^2$</p>
+            <p>$\overline{e_t} = \frac{e_t}{max_{t \leq T}(t)}$</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Putting it into practice</h2>
+          </section>
+          <section>
+            <h3>Atari benchmark</h3>
+            <img src="space_invaders.png" alt="">
+            <p class="fragment">... and <em>DQN</em> (explained by the previous guy)</p>
+          </section>
+          <section>
+            <h3>Predicting next states from pixels</h3>
+            <ul>
+              <li class="fragment">Pixels are hard</li>
+              <li class="fragment">Pixels are many</li>
+              <li class="fragment">You don't want to work with pixels</li>
+              <li class="fragment">... so you cheat</li>
+            </ul>
+            <aside class="notes">
+              This is absolutely necessary because with raw pixels your model would
+              utterly suck. There would always be slight pixel differences, quickly
+              blowing up the error and making everything "novel".
+
+              <p>AE's learn "efficient encodings" using an encoder and decoder</p>
+            </aside>
+          </section>
+          <section>
+            <h3>Predicting next states from pixels</h3>
+            <p class="fragment">Find a lower dimensional representation</p>
+            <img class="fragment" src="autoencoder.png" alt="">
+            <p class="fragment">$\rightarrow$ Train this on 250K images</p>
+          </section>
+          <section>
+            <h3>Where do the images come from?</h3>
+            <ul>
+              <li class="fragment"><strong>Static AE</strong>: Random plays (offline)</li>
+              <li class="fragment"><strong>Dynamic AE</strong>: Collect and periodically train online</li>
+            </ul>
+            <aside class="notes">
+              In case of the dynamic AE, just initialize with epsilon greedy. Retrain the autoencoder
+              every 5 epochs (of 50k episodes).
+            </aside>
+          </section>
+          <section>
+            <h3>Model Learning Architecture</h3>
+            <p>Revisiting $\mathcal{M}: \mathcal{S} \times \mathcal{A} \rightarrow \mathcal{S}$</p>
+            <img src="model.png" alt="">
+            <aside class="notes">
+              It can be so simple because the state space is already encoded
+
+              <p>Apparently takes a little while like 5 epochs to learn the more complex dynamics</p>
+            </aside>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Results and more pictures</h2>
+          </section>
+          <section>
+            <h3>Bowling</h3>
+            <img src="bowling.png" alt="">
+            <aside class="notes">
+              <p>Huge improvement of 426% thanks to exploration. Otherwise gets stuck with 6 pins.</p>
+            </aside>
+          </section>
+          <section>
+            <h3>Frostbite</h3>
+            <img src="frostbite.gif" width="640" height="480">
+            <aside class="notes">
+              <p>Like a 130% increase or so. Game adds platforms, the dynamic learner kept learning these new dynamics.</p>
+            </aside>
+          </section>
+          <section>
+            <h3>Seaquest</h3>
+            <img src="seaquest.png" alt="" width="640" height="480">
+            <aside class="notes">
+              <p>Agent learns to resurface perfectly. Static encoder does way better. Basically the model learner keeps trying to understand the weird resurfacing dynamics </p>
+            </aside>
+          </section>
+          <section>
+            <h3>Q*bert</h3>
+            <img src="qbert.png" alt="" width="640" height="480">
+            <aside class="notes">
+              <p>Exploration done goofed, the bonuses actually resulted in a lower score. 
+              Background changes color each level, dynamics predictor can't cope and exploration bonuses are assigned in near equality. Negative impact on final policy.</p>
+            </aside>
+          </section>
+          <section>
+            <h3>Games Overview</h3>
+            <p>Use for discussion only</p>
+            <img src="games_overview.png" alt="">
+          </section>
+        </section>
+        <section>
+          <h3>Comments and Thoughts</h3>
+          <ul>
+            <li class="fragment">State prediction is naive; won't work in highly stochastic cases</li>
+            <li class="fragment">Maybe share representations between model and policy</li>
+            <li class="fragment">Picking the right AE layer happens supervised</li>
+            <li class="fragment">Might not work that well with on-policy learning</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+
+    <script src="bower_components/reveal.js/lib/js/head.min.js"></script>
+    <script src="bower_components/reveal.js/js/reveal.js"></script>
+    <!-- <script src="bower_components/MathJax/MathJax.js"></script> -->
+    <!-- <script src="bower_components/MathJax/config/TeX-AMS_HTML-full.js"></script> -->
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        math: {
+            mathjax: 'bower_components/MathJax/MathJax.js',
+            config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: REVEAL_PATH + 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: REVEAL_PATH + 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: REVEAL_PATH + 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: REVEAL_PATH + 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          // THIS BE MATHJAX
+          { src: REVEAL_PATH + 'plugin/math/math.js', async: true },
+          { src: REVEAL_PATH + 'plugin/zoom-js/zoom.js', async: true },
+          { src: REVEAL_PATH + 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

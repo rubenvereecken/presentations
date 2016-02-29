@@ -1,0 +1,24 @@
+section:not(.first) p, section ul, section ol, section h4{
+  text-align: left;
+  /* Makes sure slides are left aligned */
+  min-width: 60000px;
+}
+
+section.first * {
+  text-align: center;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+.reveal section img.clean {
+  /* margin: 0px; */
+  border: 0px;
+  box-shadow: none;
+}
+
+/* .center { */
+/*   text-align: center; */
+/*   min-width: 0px; */
+/* } */
