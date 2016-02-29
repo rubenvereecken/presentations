@@ -1,0 +1,18 @@
+section p, section ul, section ol, section h4{
+  text-align: left;
+  min-width: 60000px;
+}
+
+section.first * {
+  text-align: center;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+.reveal section img.clean {
+  /* margin: 0px; */
+  border: 0px;
+  box-shadow: none;
+}

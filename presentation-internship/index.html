@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Stage Toegepaste Informatica | Ruben Vereecken</title>
+
+    <meta name="author" content="Ruben Vereecken">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="bower_components/reveal.js/css/theme/solarized.css" id="theme">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Code syntax highlighting -->
+    <!-- <link rel="stylesheet" href="lib/css/zenburn.css"> -->
+
+    <script>
+      REVEAL_PATH = 'bower_components/reveal.js/';
+    </script>
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = REVEAL_PATH + 'css/print/pdf.css';
+      if (window.location.search.match( /print-pdf/gi )) 
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section class="first">
+          <h1>Stage Toegepaste Informatica</h1>
+          <h3>Zomer 2015</h3>
+          <p>
+            <small>Ruben Vereecken </small>
+          </p>
+        </section>
+        <section>
+          <h2>Overzicht</h2>
+          <ol>
+            <li>Introductie</li>
+            <li>Stagevoorbereiding</li>
+            <li>Over Google en Gmail SRE</li>
+            <li>Eerste weken</li>
+            <li>Ontwikkelomgeving en tools</li>
+            <li>Mijn Project</li>
+            <li>Evaluatie</li>
+          </ol>
+          <aside class="notes">
+          </aside>
+        </section>
+        <section>
+          <!-- 1. Introductie -->
+          <section>
+            <h2>1. Introductie</h2>
+          </section>
+          <section>
+            <h2>Over mij</h2>
+            <ul>
+              <li class="fragment">Student Computerwetenschappen: AI</li>
+              <li class="fragment">Interesse in uitdagingen</li>
+              <li class="fragment">Interesse in eigen bedrijf opstarten</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Stage</h2>
+            <ul>
+              <li class="fragment">Software Engineering Internship bij Google</li>
+              <li class="fragment">Team Gmail SRE</li>
+              <li class="fragment">In Zurich voor 3 maanden</li>
+            </ul>
+            <img class="fragment" src="mountain2.jpg" style="width:60%" alt="">
+            <aside class="notes">
+              - Stage Zurich, bij Google als Software Engineer. Bij team Gmail SRE. 
+            </aside>
+          </section>
+          <section>
+            <h2>Waarom een tech gigant zoals Google?</h2>
+            <ul>
+              <li class="fragment">Ervaring opdoen in unieke omgeving</li>
+              <li class="fragment">Zien hoe een gigant vanbinnen werkt</li>
+              <li class="fragment">Eigen kunnen toetsen aan hoge standaarden</li>
+            </ul>
+            <aside class="notes">
+              <ul>
+                <li>In 2014, geschat acceptance rate 3.75%</li>
+              </ul>
+            </aside>
+          </section>
+       </section>
+        <section>
+          <!-- 2. Stagevoorbereiding -->
+          <section>
+            <h2>2. Stagevoorbereiding</h2>
+          </section>
+          <section>
+            <h2>3 bedrijven</h2>
+            <p></p>
+            <ul>
+              <li class="fragment">Facebook: niet gelukt</li>
+              <li class="fragment">Microsoft: aanbod gekregen</li>
+              <li class="fragment">Google: met moeite en na lang wachten</li>
+            </ul>
+            <aside class="notes">
+              Facebook 1 interview. Microsoft referral van vriend van vorige job,
+              1 online challenge, 1 phone interview, 4 onsite interviews in Dublin.
+              Google 3 phone interviews, 1 host match interview.
+            </aside>
+          </section>
+          <section>
+            <h2>Praktische voorbereiding</h2>
+            <div class="fragment">
+              <p>2 boeken:</p>
+              <ul>
+                <li>Elements of Programming Interviews</li>
+                <li>Cracking the Coding Interview</li>
+              </ul>
+            </div>
+            <div class="fragment">
+              <p>Verschillende sites:</p>
+              <ul>
+                <li>Project Euler</li>
+                <li>Hacker Rank</li>
+                <li>Glassdoor</li>
+                <li>... En wat anderen</li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section>
+          <!-- 3. Over Google en Gmail SRE -->
+          <section>
+            <h2>3. Over Google en Gmail SRE</h2>
+            <img class="clean" src="googlelogo.png" alt="Google">
+          </section>
+          <section>
+            <h2>Google</h2>
+            <ul>
+              <li class="fragment">Tech gigant sinds 1997</li>
+              <li class="fragment">Bekend door Search, YouTube, Maps, Android, etc
+              <li class="fragment">Deel van Alphabet Inc sinds augustus</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Google Zurich</h2>
+            <ul>
+              <li class="fragment">Grootste kantoor in Europa</li>
+              <li class="fragment">~2000 werknemers in 2 gebouwen</li>
+              <li class="fragment">Meeste interns</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Site Reliability Engineers</h2>
+            <ul>
+              <li class="fragment">Verantwoordelijk voor infrastructuur, releases, performantie</li>
+              <li class="fragment">On-call rotatie</li>
+              <li class="fragment">Nadruk op <em>engineers</em>: automatiseren alles</li>
+            </ul>
+            <aside class="notes">
+              SREs zijn ingenieurs.
+               
+            </aside>
+          </section>
+          <section>
+            <h2>Gmail SRE</h2>
+            <ul>
+              <li class="fragment">2 teams van samen 10-15 mensen</li>
+              <li class="fragment">Product van +1M gebruikers</li>
+              <li class="fragment">Uniek in opzet van monitoring en redundantie</li>
+              <li class="fragment">Heel volwassen: weinig verandering, weinig noodgevallen</li>
+            </ul>
+            <aside class="notes">
+              Ik zat niet bij Gmail SRE, werkte enkel samen met Baldvin die bij dat team zat.
+              Heb wel dingen geleerd over Gmail door in de buurt te zitten. Tijdens ik er was
+              is de bliksem ingeslagen in Bergen, heb de toen on-call engineer horen vertellen
+              hoe hij het had opgelost. 
+            </aside>
+          </section>
+        </section>
+        <section>
+          <!-- 4. Eerste weken -->
+          <section>
+            <h2>4. Eerste weken</h2>
+            <img src="nooglerhat.jpg" alt="Noogler Hat">
+            <aside class="notes">
+              Eerste weken waren wat anders. Manager leren kennen, veel andere 
+              interns leren kennen. 
+            </aside>
+          </section>
+          
+          <section>
+            <h2>Lessen, workshops en brainwashing</h2>
+            <ul>
+              <li class="fragment">Sessies over security, confidentiality, teamwork</li>
+              <li class="fragment">Workshops over interne tools zoals Perforce en Bazel</li>
+              <li class="fragment">Lessen over Google Search en nieuwe producten</li>
+            </ul>
+            <aside class="notes">
+                <p>
+                  Eerste twee weken wordt niet verwacht dat je werk verricht, enkel
+                  dat je cursussen volgt die worden gegeven en je inwerkt door online
+                  codelabs te volgen. Op de volgende TGIF moet je dan van de schuifaf
+                  met dat petje.
+                </p>
+              <p>
+                Binnen Google wordt eigenlijk extreem veel gedeeld. Ze zijn er dan ook
+                heel streng op dat confidentiality heel strikt wordt nageleeft, en iedereen
+                wordt verwacht zijn naasten wat te controleren. Zorgt voor een speciale 
+                sfeer soms vind ik.
+              </p>
+            </aside>
+          </section>
+          <section>
+            <h2>Infrastructure Intern Summit @ Dublin</h2>
+            <ul>
+              <li class="fragment">Mensen ontmoet die de datacenters onderhouden</li>
+              <li class="fragment">Workshops over on-call problemen oplossen</li>
+              <li class="fragment">War stories over grote interne crisissen</li>
+            </ul>
+            <img src="dublin.jpg" alt="">
+            <aside class="notes"></aside>
+          </section>
+        </section>
+        <section>
+          <!-- 5. Ontwikkelomgeving en tools -->
+          <section>
+            <h2>5. Ontwikkelomgeving en tools</h2>
+            <img class="clean" src="dev_tools.png" alt="Tools">
+            <aside class="notes">
+              Vertellen over verschillende tools aangezien er niet te veel gezegd
+              kan worden over het project zelf. Wel een belangrijk deel van mijn leerervaring,
+              dus best de moeite om iets over te zeggen.
+            Gezien ik niet zoveel over het project mag prijsgeven wil ik graag 
+            een aantal tools en werkwijzen toelichten die ik heb opgestoken.
+            Voor mij betekenen ze een belangrijk deel van wat ik tijdens mijn
+            stage heb geleerd.
+            </aside>
+          </section>
+          <section>
+            <h2>Version Control</h2>
+            <div class="fragment">
+              <p> Perforce is het standaardsysteem: </p>
+              <ul>
+                <li>Iedereen interageert met centrale server</li>
+                <li>Iedereen heeft gedeeltelijke checkout, maar toch veel dependencies</li>
+              </ul>
+            </div>
+            <div class="fragment">
+              <p> Maar ook veel andere flavors om met code te werken.  </p>
+              <ul>
+                <li>Client in the Cloud (CitC)</li>
+                <li>Git5: git wrapper</li>
+              </ul>
+            </div>
+            <aside class="notes">
+              Reeds veel ervaring met Git, maar nu andere dingen geleerd.  
+              In Google wint gewoon het systeem dat het beste is, er zijn veel
+              manieren om met code om te gaan. Ik gebruikte git5 en heb eigenlijk nooit
+              perforce gebruikt. Het heet git5 omdat de vorige tool g4 heette. God knows.
+            </aside>
+          </section>
+          <section>
+            <h2>Code Search en Critique</h2>
+            <div class="fragment">
+              <p>Code Search
+              </p>
+              <ul>
+                <li>Platform om in de code te zoeken</li>
+              </ul>
+            </div>
+            <div class="fragment">
+              <p>Critique
+              </p>
+              <ul>
+                <li>Platform om met ChangeLists te werken</li>
+                <li>Gebruikt voor het review proces</li>
+                <li>Motivaties voor code</li>
+              </ul>
+            </div>
+            <aside class="notes">
+              Het meeste is al eens geprobeerd in Google, dus Code Search is 
+              de goto als je iets nieuws wil doen. Code Search is nauw gelinkt
+              aan Critique, het platform om aan code reviews te doen. Ik heb 
+              de link vaak gebruikt toen ik zocht _waarom_ iemand nu net zoiets
+              zou doen. 
+            </aside>
+          </section>
+          <section>
+            <h2>Code Reviews</h2>
+            <ul>
+              <li class="fragment">Controle op kwaliteit, tests,...</li>
+              <li class="fragment">Owner approval</li>
+              <li class="fragment">Readability per taal</li>
+            </ul>
+            <aside class="notes">
+              Loopt mooi over van Critique.
+              Anekdote: Op een bepaald moment had een intern een review van 
+              iedereen met JS readability gevraagd. Hilarity ensued en de intern
+              heeft zijn code er nooit in gekregen. Nog nooit is iets zo grondig
+              nagekeken geweest.
+            </aside>
+          </section>
+          <section>
+            <h2>Bazel</h2>
+            <ul>
+              <li class="fragment">Google's build tool a la Make</li>
+              <li class="fragment">Volledig gedistribueerd, niets wordt lokaal gecompileerd</li>
+              <li class="fragment">Werkt voor alle talen, eenvoudig uitbreidbaar</li>
+              <li class="fragment">Automatische dependency management</li>
+              <li class="fragment">Automatisch tests bouwen en uitvoeren</li>
+            </ul>
+            <aside class="notes"></aside>
+          </section>
+          <section>
+            <h2>Protocol Buffers</h2>
+            <ul>
+              <li class="fragment">Een Google-wijd dataformaat en meer</li>
+              <li class="fragment">Automatisch gegenereerde compatibele clients en servers</li>
+              <li class="fragment">Staat toe dat protocols uitgebreid worden</li>
+              <li class="fragment">Ook gebruikt voor RPC services</li>
+              <li class="fragment">Enorm performant in binair formaat</li>
+            </ul>
+            <aside class="notes"></aside>
+          </section>
+        </section>
+        <section>
+          <!-- 7. Mijn Project: Autodash -->
+          <section>
+            <h2>6. Mijn Project: Autodash</h2>
+            <p style="text-align: center">
+              The ultimate Automation Dashboard.
+            </p>
+            <aside class="notes">
+              Ik heb geluk gehad het begin van Autodash mee te maken. <br>
+              Daardoor mocht ik het volledig mee designen, had enorm veel input
+            </aside>
+          </section>
+          <section>
+            <h2>Achtergrond</h2>
+            <ul>
+              <li class="fragment">Automation: automatisering van processen zoals rollouts</li>
+              <li class="fragment">Maar... Een strijd gestreden op vele fronten</li>
+              <li class="fragment">Vele pogingen om een universeel platform te maken</li>
+              <li class="fragment">Huidige stand: iedereen heeft eigen flavor van laatste poging</li>
+            </ul>
+            <aside class="notes">
+               <p> Automatisering van rollouts: vermeld canary, feature testing, verhuizen van
+               cluster </p> <p> Elk team lost zijn eigen problemen op. De basis is grotendeels
+               uniform: clusterbeheer.  </p>
+               <p> Grote figuren die Google SRE scene goed kennen strijden voor een convergerende
+               beweging, in plaats van divergerend zoals dit moment het geval is. Mijn baas is een
+               van die frontmannen.  </p>
+               <p> Er is al heel veel geld gepompt in oplossingen. De laatste, die door veel mensen
+               wordt gebruikt, voldeed voor niemand volledig. Iedereen heeft zijn eigen versie
+               gemaakt en moet die dan ook zelf hosten. Daardoor is er voor elk team een eigen
+               flavor. Dit platform met zijn vele flavors is dan ook het hoofddoelwit voor ons.
+               </p>
+            </aside>
+          </section>
+          <section>
+            <h2>Wat is Autodash</h2>
+            <ul>
+              <li class="fragment"><em>Automation Dashboard</em></li>
+              <li class="fragment">Het begin van een oplossing voor de huidige dystopie</li>
+              <li class="fragment">Een dashboard dat een snel overzicht biedt</li>
+              <li class="fragment">... En daarbij ook heel geavanceerd zoekbaar voor specifieke info</li>
+              <li class="fragment">Haalt informatie uit alle relevante bronnen</li>
+              <li class="fragment"><em>Federated</em>: wordt aangeboden als Platform As A Service</li>
+              <!-- <li class="fragment">Moeilijkste: Alle verschillende info toch uniform aanbieden</li> -->
+            </ul>
+            <aside class="notes">
+              Ik kan niet teveel details vertellen. Beschouw Autodash als aggregator van informatie
+              die die informatie dan beschikbaar stelt en heel efficient zoekbaar maakt. Sommige
+              teams hebben wel 5 verschillende platforms waar ze naar moeten kijken. In geval van
+              nood moet het snel gaan. Autodash is de perfecte oplossing voor deze teams. 
+              Doel: sympathie winnen. Eenvoudig beginnen, daarna meer en meer kracht geven.
+              Uiteindelijk worden oude platforms vervangen.
+              <p>
+                Voorbeeld van info: Hoever staan mijn rollouts, zijn er ergens errors. 
+              </p>
+            </aside>
+          </section>
+          <section>
+            <h2>Autodash Design</h2>
+            <img src="design.png" class="clean" alt="Autoadash Design">
+            <aside class="notes">
+              <ul>
+                <li>De basis van alles is beseffen dat het gaat om informatie verzamelen en displayen</li>
+                <li>De Sources of truth zijn de bronnen die informatie pushen</li>
+                <li>Informatie kan gestuurd worden via het public protocol, naar de indexer</li>
+                <li>Er is maar 1 indexer. Schaalt slecht.</li>
+                <li>Er zijn wel een hoop frontends, zodat we daar een hele load kunnen verdragen</li>
+                <li>Veel gediscussieerd om te cachen in frontends omdat die gemakkelijk scalen</li>
+                <li>Maar nog niet, gezien sommige info heel tijdsgevoelig is, hoewel meeste niet</li>
+                <li>Frontend servers hielden wat info bij in een db, gebruiker specifiek</li>
+                <li>Frontend was configureerbaar met config bestanden, die regelmatig herladen werden</li>
+                <li>Zo konden we gemakkelijk veranderingen pushen</li>
+                <li>Waarom geen meerdere indexers? Index was in-memory, nog niet zo goed uitgedacht</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h2>Autodash Implementation: Frontend</h2>
+            <ul>
+              <li class="fragment">Server geschreven in Go</li>
+              <li class="fragment">One-page web app in Angular.js 1.3</li>
+              <li class="fragment">Alle data over JSON requests</li>
+              <li class="fragment">Geschreven in JavaScript Closure</li>
+              <li class="fragment">Google Material's design specification</li>
+              <li class="fragment">RPC's werden doorgestuurd naar Indexer</li>
+            </ul>
+            <aside class="notes">
+               <p>
+                 Closure: Dialect van JS. Compileerbaar dus statically typed, ook minified en
+            obscured. Alternatief zou TypeScript zijn wat dus geen JS meer is maar compileert naar
+            JS. Closure was een verschrikkelijke ervaring, met een paar interne bugs etc. Meer
+            gevecht dan winst.
+               </p>
+            </aside>
+          </section>
+          <section>
+            <h2>Autodash Implementation: Indexer</h2>
+            <ul>
+              <li class="fragment">Geschreven in Go</li>
+              <li class="fragment">Meeste data in-memory bijgehouden</li>
+              <li class="fragment">De rest in een gedistribueerde NoSQL database</li>
+              <li class="fragment">Endpoints voor de public API om data aan te nemen</li>
+              <li class="fragment">Endpoints voor de interne API om queries te beantwoorden</li>
+            </ul>
+            <aside class="notes"></aside>
+          </section>
+          <section>
+            <h2>Autodash Resultaten</h2>
+            <ul>
+              <li class="fragment">Volledig bruikbaar prototype dat met echte data werkt</li>
+              <li class="fragment">Goed ontvangen op de Automation Summit</li>
+              <li class="fragment">Reeds een aantal experimentele gebruikers die nieuwsgierig waren</li>
+              <li class="fragment">Grondig gedekt door tests</li>
+              <li class="fragment">Volledig gemonitord op gebruik</li>
+            </ul>
+            <p class="fragment">Maar...</p>
+            <ul>
+              <li class="fragment">Nog niet schaalbaar voor veel data</li>
+              <li class="fragment">Problemen met 'verse' data</li>
+              <li class="fragment">Nog niet erg veilig</li>
+            </ul>
+            <aside class="notes"></aside>
+          </section>
+        </section>
+        <section>
+          <!-- 7. Evaluatie -->
+          <section>
+            <h2>7. Evaluatie</h2>
+            <aside class="notes">
+              Aantonen dat het niet enkel plezier is, veel waardige lessen geleerd.
+              Al bij al ee ontzettend waardevolle ervaring. 
+            </aside>
+          </section>
+          <section>
+            <h2>Technische lessen</h2>
+            <ul>
+              <li class="fragment">Angular.JS + JavaScript Closure</li>
+              <li class="fragment">Go</li>
+              <li class="fragment">Protocol Buffers</li>
+              <li class="fragment">Tests</li>
+              <li class="fragment">Omgaan met gigantische code repositories</li>
+              <li class="fragment">Interne talks en papers over Machine Learning</li>
+            </ul>
+            <aside class="notes"></aside>
+          </section>
+          <section>
+            <h2>Andere lessen</h2>
+            <ul>
+              <li class="fragment">Geleerd het heft in handen te nemen</li>
+              <li class="fragment">Geleerd hoe het er in een groot bedrijf aan toe gaat</li>
+            </ul>
+            <aside class="notes"></aside>
+          </section>
+        </section>
+        <section>
+        <section>
+          <h2>Eindwoord</h2>
+          <img src="thatsall.jpg" class="clean" style="max-width: 90%" alt="">
+          <aside class="notes">
+            Stage was voor mij een waardevolle ervaring, ik hoop dat die boodschap
+            goed is overgekomen. Ik heb aan een echt project gewerkt en voor een 
+            groot bedrijf echte waarde opgebracht, in tegenstelling tot school-
+            projectjes die worden weggeworpen. 
+            U was een ontzettend aandachtig publiek, danku daarvoor.
+            Ik hoop dat ik uw vragen evenveel aandacht kan schenken als u
+            mijn presentatie.
+          </aside>
+        </section>
+        </section>
+      </div>
+    </div>
+
+
+    <script src="bower_components/reveal.js/lib/js/head.min.js"></script>
+    <script src="bower_components/reveal.js/js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: REVEAL_PATH + 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: REVEAL_PATH + 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: REVEAL_PATH + 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: REVEAL_PATH + 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: REVEAL_PATH + 'plugin/zoom-js/zoom.js', async: true },
+          { src: REVEAL_PATH + 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
