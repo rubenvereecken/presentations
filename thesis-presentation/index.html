@@ -103,7 +103,7 @@
           <section>
             <h3>Getting DQN running</h3>
             <ul>
-              <li class="fragment">Forked some guy's repository</li>
+              <li class="fragment">Forked some guy's implementation</li>
               <li class="fragment">Get it to run using CPUs</li>
               <li class="fragment">Get it to run fast (using GPUs)</li>
               <li class="fragment">Get it to finish (100 days for full network)</li>
@@ -182,10 +182,12 @@
 
         transition: 'slide', // none/fade/slide/convex/concave/zoom
 
+        /*
         math: {
             mathjax: 'bower_components/MathJax/MathJax.js',
             config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
         },
+        */
 
         // Optional reveal.js plugins
         dependencies: [
@@ -194,7 +196,7 @@
           { src: REVEAL_PATH + 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
           { src: REVEAL_PATH + 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
           // THIS BE MATHJAX
-          { src: REVEAL_PATH + 'plugin/math/math.js', async: true },
+          //{ src: REVEAL_PATH + 'plugin/math/math.js', async: true },
           { src: REVEAL_PATH + 'plugin/zoom-js/zoom.js', async: true },
           { src: REVEAL_PATH + 'plugin/notes/notes.js', async: true }
         ]
