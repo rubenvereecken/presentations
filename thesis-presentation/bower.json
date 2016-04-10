@@ -1,0 +1,22 @@
+{
+  "name": "thesis-presentation",
+  "homepage": "https://github.com/rubenvereecken/presentations",
+  "authors": [
+    "Ruben Vereecken <rubenvereecken@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "reveal.js": "^3.2.0"
+  }
+}

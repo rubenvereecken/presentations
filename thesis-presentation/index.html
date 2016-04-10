@@ -45,23 +45,20 @@
       <div class="slides">
         <section class="first">
           <!-- <h1>Multi-Agent Learning Seminar</h1> -->
-          <h2>A Glance at Reinforcement Learning using DQN</h2>
+          <h2>Reinforcement Learning using Deep Q-Networks</h2>
           <br>
           <em>presentation by Ruben Vereecken</em>
         </section>
         <section>
           <section>
-            <h2>Current State</h2>
-            <ul>
-              <li>DQN is </li>
-            </ul>
+            <h2>Current State of Affairs</h2>
           </section>
           <section>
             <h3>Reinforcement Learning</h3>
               <ul>
-                <li class="fragment">Q-Learning</li>
-                <li class="fragment">Large state space -> function approximator</li>
-                <li class="fragment">Enter DQN</li>
+                <li class="fragment">Q-Learning for learning offline policy</li>
+                <li class="fragment">Large state space -> function approximator for Q</li>
+                <li class="fragment">Enter Deep Q-Networks</li>
               </ul>
           </section>
           <section>
@@ -80,20 +77,31 @@
           <section>
             <h3>Deep Q-Network (DQN) by DeepMind</h3>
             <img src="dqn.png" alt="">
-          </section>
-          <section>
-            <h3>DQN Results</h3>
-            <img src="dqn_results.png" width="50%"> 
+            <aside class="notes">
+              <ul>
+                <li>Bottom layers learn representation</li>
+                <li>Top layers learn Q-values</li>
+                <li></li>
+                <li></li>
+              </ul>
+            </aside>
           </section>
           <section>
             <h3>DQN Tips & Tricks</h3>
             <ul>
               <li class="fragment">Convolutional layers to learn features from pixels</li>
+              <li class="fragment">Use 4 consecutive frames to make everything Markovian</li>
               <li class="fragment">Batch training after every step</li>
               <li class="fragment">Use of target network (to stabilize)</li>
-              <li class="fragment">Huge replay memory: 1M samples</li>
+              <li class="fragment">Huge replay memory: 1M samples (> 7GB)</li>
               <li class="fragment">Make the network deep and big enough</li>
             </ul>
+            <aside class="notes">
+            </aside>
+          </section>
+          <section>
+            <h3>DQN Results</h3>
+            <img src="dqn_results.png" width="50%"> 
           </section>
         </section>
         <section>
@@ -103,12 +111,10 @@
           <section>
             <h3>Getting DQN running</h3>
             <ul>
-              <li class="fragment">Forked some guy's repository</li>
+              <li class="fragment">Forked some guy's implementation</li>
               <li class="fragment">Get it to run using CPUs</li>
               <li class="fragment">Get it to run fast (using GPUs)</li>
-              <li class="fragment">Get it to finish (100 days for full network)</li>
-              <li class="fragment"></li>
-              <li class="fragment"></li>
+              <li class="fragment">Get it to finish (~100 days for full network)</li>
             </ul>
             <aside class="notes">
               <ul>
@@ -130,7 +136,7 @@
             <h3>Parameter exploration: Introduce Targets</h3>
             <img class="clean" src="seaquest_less_freeze.png" alt="">
             <img class="clean" src="seaquest_more_freeze.png" alt="">
-            <p>Varying freeze frequencies</p>
+            <p>Varying freeze network frequencies</p>
             <p>10000 vs 2000</p>
             <aside class="notes">
               Indeed, deepmind later settled on 10000 (Nature)
@@ -144,16 +150,37 @@
           <section>
             <h3>Introduce Memory: Recurrent Connections</h3>
             <img src="dqn_lstm.png" alt="">
+            <aside class="notes">
+              <ul>
+                <li>Solve using 4 frames. Use LSTM to estimate state like speed</li>
+                <li>Works very well if state only partially observable</li>
+                <li>Example game for which it might work well: </li>
+                <li>Fck these guys anyway</li>
+              </ul>
+            </aside>
           </section>
           <section>
             <h3>Currently explored ideas</h3>
             <ul>
-              <li class="fragment">Speed up DQN learning by assisting with a linear learner</li>
-              <li class="fragment">Shrink replay memory by picking representative samples</li>
+              <li class="fragment">Speed up DQN learning by assisting with a linear learner
+                <ul>
+                  <li>Make learners agree on samples</li>
+                  <li>Use the faster learner's target values</li>
+                </ul>
+              </li>
+                <br>
+              <li class="fragment">Shrink replay memory by picking representative samples
+                <ul>
+                  <li>Make learning faster by learning what matters</li>
+                  <li>Accurately learn what representative means</li>
+                </ul>
+              </li>
             </ul>
             <aside class="notes">
               Speedup can be achieved by either trying to make them agree on 
               samples or by using the fast learner's value estimates.
+
+
             </aside>
           </section>
         </section>
@@ -182,10 +209,12 @@
 
         transition: 'slide', // none/fade/slide/convex/concave/zoom
 
+        /*
         math: {
             mathjax: 'bower_components/MathJax/MathJax.js',
             config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
         },
+        */
 
         // Optional reveal.js plugins
         dependencies: [
@@ -194,7 +223,7 @@
           { src: REVEAL_PATH + 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
           { src: REVEAL_PATH + 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
           // THIS BE MATHJAX
-          { src: REVEAL_PATH + 'plugin/math/math.js', async: true },
+          //{ src: REVEAL_PATH + 'plugin/math/math.js', async: true },
           { src: REVEAL_PATH + 'plugin/zoom-js/zoom.js', async: true },
           { src: REVEAL_PATH + 'plugin/notes/notes.js', async: true }
         ]
