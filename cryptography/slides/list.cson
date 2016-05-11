@@ -1,0 +1,21 @@
+[
+  "index.md"
+  [
+    { "filename": "introduction/intro.md" }
+    { "filename": "introduction/cryptocurrency.md" }
+    { "filename": "introduction/bitcoin.md" }
+  ]
+  [
+    { "filename": "how/intro.md" }
+    { "filename": "how/blockchain.md" }
+    { filename: 'ownership.md' }
+    { filename: 'transactions.md' }
+  ]
+  [
+    { filename: 'mining/index.md' }
+    { filename: 'mining/pow.md' }
+    { filename: 'mining/mining.md' }
+    { filename: 'mining/mining2.md' }
+    { filename: 'mining/difficulty.md' }
+  ]
+]

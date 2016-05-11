@@ -1,7 +1,7 @@
 section:not(.first) p, section ul, section ol, section h4{
   text-align: left;
   /* Makes sure slides are left aligned */
-  min-width: 60000px;
+  min-width: 960px;
 }
 
 section.first * {
