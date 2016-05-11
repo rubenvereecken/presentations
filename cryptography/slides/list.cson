@@ -8,8 +8,8 @@
   [
     { "filename": "how/intro.md" }
     { "filename": "how/blockchain.md" }
-    { filename: 'ownership.md' }
-    { filename: 'transactions.md' }
+    { filename: 'how/ownership.md' }
+    { filename: 'how/transactions.md' }
   ]
   [
     { filename: 'mining/index.md' }
