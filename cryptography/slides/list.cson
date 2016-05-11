@@ -4,6 +4,7 @@
     { "filename": "introduction/intro.md" }
     { "filename": "introduction/cryptocurrency.md" }
     { "filename": "introduction/bitcoin.md" }
+    { "filename": "introduction/popularity.md" }
   ]
   [
     { "filename": "how/intro.md" }
@@ -17,5 +18,11 @@
     { filename: 'mining/mining.md' }
     { filename: 'mining/mining2.md' }
     { filename: 'mining/difficulty.md' }
+  ]
+  [
+    { filename: 'conclusion/index.md' }
+    { filename: 'conclusion/conclusion.md' }
+    { filename: 'conclusion/conclusion2.md' }
+    { filename: 'conclusion/volatility.md' }
   ]
 ]
