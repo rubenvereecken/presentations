@@ -1,0 +1,9 @@
+[
+  "index.md"
+  "goal.md"
+  [
+    "approach/index.md"
+    "approach/overview.md"
+    "approach/detailed.md"
+  ]
+]
