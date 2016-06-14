@@ -1,3 +1,4 @@
+cson = require 'cson'
 # Generated on 2016-06-14 using generator-reveal 0.5.9
 module.exports = (grunt) ->
 
@@ -20,7 +21,7 @@ module.exports = (grunt) ->
                 files: [
                     'templates/_index.html'
                     'templates/_section.html'
-                    'slides/list.json'
+                    'slides/list.cson'
                 ]
                 tasks: ['buildIndex']
 
@@ -87,11 +88,11 @@ module.exports = (grunt) ->
     require('load-grunt-tasks')(grunt)
 
     grunt.registerTask 'buildIndex',
-        'Build index.html from templates/_index.html and slides/list.json.',
+        'Build index.html from templates/_index.html and slides/list.cson.',
         ->
             indexTemplate = grunt.file.read 'templates/_index.html'
             sectionTemplate = grunt.file.read 'templates/_section.html'
-            slides = grunt.file.readJSON 'slides/list.json'
+            slides = cson.load 'slides/list.cson'
 
             html = grunt.template.process indexTemplate, data:
                 slides:
