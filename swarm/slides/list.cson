@@ -5,9 +5,9 @@
     "approach/index.md"
     "approach/overview.md"
     "approach/nest.md"
-    "approach/chain.md"
     "approach/explore.md"
     "approach/attach.md"
+    "approach/chain.md"
   ]
   [
     "optimization/index.md"
@@ -20,10 +20,10 @@
     "analysis/warning.md"
     "analysis/length_steps.md"
     "analysis/length_robots.md"
-    "analysis/prob1.md"
     "analysis/prob1_clean.md"
-    "analysis/prob2.md"
     "analysis/prob2_clean.md"
+    "analysis/prob2.md"
+    "analysis/prob1.md"
   ]
   "conclusion.md"
   "exit.md"
