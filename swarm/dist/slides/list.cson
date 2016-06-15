@@ -3,9 +3,7 @@
   "goal.md"
   [
     "approach/index.md"
-    "approach/original.md"
     "approach/overview.md"
-    "approach/detailed.md"
     "approach/nest.md"
     "approach/chain.md"
     "approach/explore.md"
