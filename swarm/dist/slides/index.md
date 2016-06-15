@@ -1,10 +1,4 @@
 
-# Swarm Robotics
+# Swarm Robotics Project
 
-From the terminal, pop in:
-
-  ```yo reveal:slide "Slide Title"```
-
-Available options:
-
- ```--markdown --attributes --notes```
+_by Ruben Vereecken_
