@@ -13,6 +13,7 @@
   ]
   [
     "optimization/index.md"
+    "optimization/robustness.md"
     "optimization/departure.md"
     "optimization/disband.md"
   ]
