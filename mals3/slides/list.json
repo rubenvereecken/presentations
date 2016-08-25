@@ -1,12 +1,22 @@
 [
     "index.md",
   [
+    "dqn/index.md",
+    "dqn/network.md"
+  ],
+  [
     "intro/index.md",
     "intro/pong.md"
   ],
   [
-    "dqn/index.md",
-    "dqn/network.md"
+    "conv3d/index.md",
+    "conv3d/conv2d.md",
+    "conv3d/conv3d.md",
+    "conv3d/network.md"
+  ],
+  [
+    "results/index.md",
+    "results/q.md",
+    "results/reward.md"
   ]
-
 ]
