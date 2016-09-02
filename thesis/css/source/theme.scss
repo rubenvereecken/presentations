@@ -1,0 +1,75 @@
+/**
+ * White theme for reveal.js. This is the opposite of the 'black' theme.
+ *
+ * Copyright (C) 2015 Hakim El Hattab, http://hakim.se
+ */
+
+
+@import "../../bower_components/reveal.js/css/theme/template/mixins";
+@import "../../bower_components/reveal.js/css/theme/template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(../bower_components/reveal.js/lib/font/source-sans-pro/source-sans-pro.css);
+
+
+// Solarized colors
+$base03:    #002b36;
+$base02:    #073642;
+$base01:    #586e75;
+$base00:    #657b83;
+$base0:     #839496;
+$base1:     #93a1a1;
+$base2:     #eee8d5;
+$base3:     #fdf6e3;
+$yellow:    #b58900;
+$orange:    #cb4b16;
+$red:       #dc322f;
+$magenta:   #d33682;
+$violet:    #6c71c4;
+$blue:      #268bd2;
+$cyan:      #2aa198;
+$green:     #859900;
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff;
+$backgroundColor: $base3;
+
+$mainColor: #222;
+$mainColor: $base00;
+$headingColor: #222;
+$headingColor: $base01;
+
+$mainFontSize: 38px;
+$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 600;
+$linkColor: #2a76dd;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+section.has-dark-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: #fff;
+	}
+}
+
+// Makes sure slides are left aligned
+section:not(.first) p, section ul, section ol, section h4 {
+  text-align: left;
+  min-width: 960px;
+}
+
+
+// Theme template ------------------------------
+@import "../../bower_components/reveal.js/css/theme/template/theme";
+// ---------------------------------------------
