@@ -1,3 +1,3 @@
 ## 3D Conv Network
 
-![](resources/nips_network.png)
+![](resources/conv3d_network.png)

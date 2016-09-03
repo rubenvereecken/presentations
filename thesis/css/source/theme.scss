@@ -73,3 +73,8 @@ section:not(.first) p, section ul, section ol, section h4 {
 // Theme template ------------------------------
 @import "../../bower_components/reveal.js/css/theme/template/theme";
 // ---------------------------------------------
+
+.reveal section img {
+  max-height: 500px;
+  border: none;
+}
