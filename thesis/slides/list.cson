@@ -3,7 +3,6 @@
   "overview.md"
   [
     "intro/index.md"
-    "intro/rl.md"
     "intro/ale.md"
   ]
   "question.md"
@@ -13,7 +12,6 @@
     "bg/ann.md"
     "bg/conv.md"
     "bg/lstm.md"
-    "bg/dqn.md"
   ]
   [
     "exp/index.md"
