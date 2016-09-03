@@ -1,0 +1,9 @@
+{
+  "generator-reveal": {
+    "presentationTitle": "Exploring Image Channels for Deep Q-Network",
+    "packageVersion": "0.0.0",
+    "revealTheme": "solarized",
+    "useSass": false,
+    "deployToGithubPages": false
+  }
+}
