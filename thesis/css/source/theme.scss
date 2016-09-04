@@ -77,6 +77,15 @@ section:not(.first) p, section ul, section ol, section h4 {
   height: auto;
 }
 
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+
 
 // Theme template ------------------------------
 @import "../../bower_components/reveal.js/css/theme/template/theme";
@@ -85,4 +94,9 @@ section:not(.first) p, section ul, section ol, section h4 {
 .reveal section img {
   max-height: 500px;
   border: none;
+}
+
+.reveal .refs {
+  bottom: 0px;
+  font-size: 24px;
 }
