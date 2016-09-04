@@ -1,3 +1,8 @@
-## From 2D to 3D
+## 2D vs 3D convolutions
+<div class="left">
+![](resources/conv2d_time.png)
+</div>
 
-![](resources/2dconv.png)
+<div class="right">
+![](resources/conv3d_time.png)
+</div>

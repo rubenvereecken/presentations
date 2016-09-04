@@ -8,7 +8,8 @@
   "question.md"
   [
     "bg/index.md"
-    "bg/ml.md"
+    "bg/rl.md"
+    "bg/qlearning.md"
     "bg/ann.md"
     "bg/conv.md"
     "bg/lstm.md"
@@ -16,6 +17,10 @@
   [
     "exp/index.md"
     "exp/overview.md"
+    "exp/dqn_index.md"
+    "exp/dqn_core.md"
+    "exp/dqn_network.md"
+    "exp/dqn_results.md"
     "exp/lf_index.md"
     "exp/lf_network.md"
     "exp/lf_results.md"
@@ -26,9 +31,14 @@
     "exp/lstm_index.md"
     "exp/lstm_network.md"
     "exp/lstm_results.md"
+    "exp/comparison.md"
+    "exp/flickering.md"
   ]
   [
     "con/index.md"
+    "con/performance.md"
+    "con/contrib.md"
+    "con/future.md"
   ]
   "exit.md"
   "refs.md"
