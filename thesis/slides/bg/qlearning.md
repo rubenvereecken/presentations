@@ -1,7 +1,6 @@
 ## Q Function
 
 <div class="refs">
-  Watkins (1989)
 </div>
 
 - Learn a policy $\pi(s,a)$
