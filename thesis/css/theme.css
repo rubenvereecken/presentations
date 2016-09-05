@@ -309,3 +309,7 @@ body {
 .reveal .refs {
   bottom: 0px;
   font-size: 24px; }
+
+.reveal img.clear {
+  box-shadow: none;
+  border: none; }

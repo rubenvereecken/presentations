@@ -1,5 +1,12 @@
 ## References
 <ul class="refs">
+<li>
+Bellemare, M. G., Naddaf, Y., Veness, J., & Bowling, M. (2013). The Arcade Learning Environment: An Evaluation Platform for General Agents. Journal of Artificial Intelligence Research, 47, 253–279.
+</li>
+<li>
+Sutton, R. S. & Barto, A. G. (1998). Reinforcement learning: an introduction.
+MIT press.
+</li>
   <li>
 Mnih, V., Kavukcuoglu, K., Silver, D., Graves, A., Antonoglou, I., Wierstra,
 D., & Riedmiller, M. (2013). Playing Atari with Deep Reinforcement
@@ -19,9 +26,5 @@ Recognition (CVPR), 1725–1732.
 <li>
 Hausknecht, M. & Stone, P. (2015). Deep Recurrent Q-Learning for Partially
 Observable MDPs. arXiv preprint. arXiv: 1507.06527
-</li>
-<li>
-Sutton, R. S. & Barto, A. G. (1998). Reinforcement learning: an introduction.
-MIT press.
 </li>
 </ul>

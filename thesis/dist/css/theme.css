@@ -18,6 +18,12 @@ section:not(.first) p, section ul, section ol, section h4 {
   max-width: 100%;
   height: auto; }
 
+.right {
+  float: right; }
+
+.left {
+  float: left; }
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -298,4 +304,12 @@ body {
 
 .reveal section img {
   max-height: 500px;
+  border: none; }
+
+.reveal .refs {
+  bottom: 0px;
+  font-size: 24px; }
+
+.reveal img.clear {
+  box-shadow: none;
   border: none; }
