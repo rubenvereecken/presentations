@@ -100,3 +100,8 @@ section:not(.first) p, section ul, section ol, section h4 {
   bottom: 0px;
   font-size: 24px;
 }
+
+.reveal img.clear {
+  box-shadow: none;
+  border: none;
+}
