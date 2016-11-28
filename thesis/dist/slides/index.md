@@ -9,6 +9,7 @@
 <a href="http://rubenvereecken.github.io/presentations/thesis/dist/thesis.pdf">
 PDF
 </a>
+<br/>
 <a href="http://bit.do/ruben-thesis">
 bit.do/ruben-thesis
 </a>
