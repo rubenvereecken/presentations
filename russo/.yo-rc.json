@@ -1,0 +1,9 @@
+{
+  "generator-reveal": {
+    "presentationTitle": "Chat with Professor Russo",
+    "packageVersion": "0.0.0",
+    "revealTheme": "solarized",
+    "useSass": false,
+    "deployToGithubPages": false
+  }
+}
