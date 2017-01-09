@@ -1,0 +1,27 @@
+[
+  "index.md",
+  "courses.md"
+  [
+    "thesis/index.md",
+    "thesis/ale.md",
+    "thesis/rl.md"
+    "thesis/rl2.md"
+    "thesis/sol.md"
+    "thesis/lf_network.md"
+    "thesis/conv3d_network.md"
+    "thesis/lstm_network.md"
+  ]
+  [
+    "taglayer/index.md"
+    "taglayer/recommendation.md"
+    "taglayer/lda.md"
+  ]
+  [
+    "interests/index.md"
+    "interests/dnc.md"
+    "interests/unreal.md"
+  ]
+  "intersect.md"
+  "refs.md"
+  "refs2.md"
+]
