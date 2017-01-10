@@ -1,4 +1,4 @@
-## Differentiable Neural Computer
+## Differentiable Neural Computer (DNC)
 
 
 <div>

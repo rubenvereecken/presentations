@@ -1,5 +1,6 @@
 [
   "index.md",
+  "intro.md"
   "courses.md"
   [
     "thesis/index.md",
@@ -19,7 +20,9 @@
   [
     "interests/index.md"
     "interests/dnc.md"
+    "interests/dnc2.md"
     "interests/unreal.md"
+    "interests/unreal2.md"
     "interests/refrl.md"
   ]
   "intersect.md"
